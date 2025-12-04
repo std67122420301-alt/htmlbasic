@@ -1,48 +1,156 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HTML Basic</title>
-  <link rel="stylesheet" href="/css/style.css">
-  <img title="sakura.png" alt="sakura Image" width="32" height="32">
-  <style>
-    h3 {
-      color: chartreuse;
+<meta charset="UTF-8">
+<title>Web Form Example</title>
+<style>
+    body {
+        font-family: Tahoma, sans-serif;
+        background: #f4f4f4;
+        margin: 0;
+        padding: 20px;
     }
-    h1 {
-      color: rgb(162, 0, 255);
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
     }
-  </style>
+    .container {
+        width: 650px;
+        background: #F2E4CF;
+        margin: auto;
+        padding: 20px 40px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    hr { margin: 10px 0; }
+    label { font-weight: bold; }
+    input[type=text], select {
+        width: 90%;
+        padding: 6px;
+        margin-top: 5px;
+        border-radius: 5px;
+        border: 1px solid #aaa;
+    }
+    .form-section {
+        margin-bottom: 20px;
+    }
+    .button-area {
+        text-align: center;
+    }
+    input[type=submit], input[type=reset], .cancel-btn {
+        padding: 8px 20px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+    }
+    input[type=submit] { background: #4CAF50; color: white; }
+    input[type=reset] { background: #f39c12; color: white; }
+    .cancel-btn {
+        background: #e74c3c;
+        color: white;
+        text-decoration: none;
+        padding: 8px 20px;
+    }
+    .error {
+        color: red;
+        font-size: 13px;
+    }
+</style>
+
+<script>
+function validateForm() {
+    let name = document.forms["surveyForm"]["fullname"].value;
+    let sid = document.forms["surveyForm"]["studentid"].value;
+    let errorMsg = "";
+
+    if (name.trim() === "") errorMsg += "กรุณากรอกชื่อ-นามสกุล\n";
+    if (sid.trim() === "") errorMsg += "กรุณากรอกรหัสนักศึกษา\n";
+
+    if (errorMsg !== "") {
+        alert(errorMsg);
+        return false;
+    }
+    return true;
+}
+</script>
+
 </head>
-<br>
-  <h1 style="color: blue;">Home Page Heading 1</h1>
-  <h1 class="Heading1">Home Page Heading 1</h1>
-  <h2 style="color: chocolate;">Home Page Heading 2</h2>
-  <h3 id="heading3">Home Page Heading 3</h3>
-  <h3>Home Page Heading 3</h3>
-  <h4>Home Page Heading 4</h4>
-  <h5><mark>Page Heading 5</mark> </h5>
-  <h6>Home Page Heading 6</h6>
-  <p>
-    a<sup>2</sup>+b<sup>2</sup>c<sup></sup>
-  </p>
-  
 
-<a href="https://www.ubru.ac.th" target="_blank">
-    <img title="UBRU Home Page" src="sakura.png" alt="Sakura Image" width="32" height="32">
-</a>
+<body>
 
-<br>
+<h2>แบบสอบถามข้อมูลนักศึกษา</h2>
 
-<img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/718.png"
-    alt="Zygarde" width="64" height="64">
+<div class="container">
 
-<img src="sakura.png" alt="Sakura Image" width="64" height="64">
-  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates, dolorem totam optio blanditiis at dolores exercitationem voluptatibus quos ab tenetur voluptatum corrupti distinctio maxime, adipisci accusamus quibusdam. Dicta, minus possimus?
-  Aliquam, maiores asperiores! Blanditiis perferendis possimus est aliquam assumenda odit officia saepe ipsum quos. Quasi totam nostrum, quis corporis consequuntur ea odio odit! Nulla at recusandae a quibusdam quidem quos?
-  Sunt, maiores, aperiam omnis quidem illo in nam optio sed et ea, qui officia temporibus est rerum ex eius! Illum labore sed deleniti odio cum, cupiditate molestiae perspiciatis. Doloribus, temporibus.
-  Laboriosam aspernatur illo repellat non amet explicabo nisi accusamus error ab esse nulla recusandae at aliquam, animi sed vero tempora excepturi, rem eligendi quod consequuntur culpa voluptatem. Quae, ullam suscipit.
-  Eum molestiae delectus dolor nam beatae quibusdam repellat esse exercitationem itaque numquam culpa libero quos voluptate sint fuga inventore repudiandae, tempora velit tempore dolore natus sequi temporibus. Unde, magni cumque!</p>
+<form name="surveyForm" onsubmit="return validateForm()">
+
+    <div class="form-section">
+        <label>ข้อมูลผู้ตอบแบบสอบถาม</label>
+        <hr>
+    </div>
+
+    <div class="form-section">
+        <label>ชื่อ-นามสกุล:</label><br>
+        <input type="text" name="fullname">
+    </div>
+
+    <div class="form-section">
+        <label>รหัสนักศึกษา:</label><br>
+        <input type="text" name="studentid">
+    </div>
+
+    <div class="form-section">
+        <label>เพศ:</label><br>
+        <input type="radio" name="gender" checked> ชาย
+        <input type="radio" name="gender"> หญิง
+    </div>
+
+    <div class="form-section">
+        <label>สาขาวิชา:</label><br>
+        <select size="6">
+            <option>วิทยาการคอมพิวเตอร์</option>
+            <option>เทคโนโลยีสารสนเทศ</option>
+            <option>วิศวกรรมซอฟต์แวร์</option>
+            <option>คณิตศาสตร์</option>
+            <option>ชีววิทยา</option>
+            <option>ฟิสิกส์</option>
+        </select>
+    </div>
+
+    <div class="form-section">
+        <label>แผนที่สนใจเรียน:</label><br>
+        <input type="checkbox"> ปกติ
+        <input type="checkbox"> มืออาชีพ
+    </div>
+
+    <div class="form-section">
+        <label>ผลที่ได้รับจากการเรียน:</label><br>
+        <input type="checkbox"> ได้พัฒนา
+        <input type="checkbox"> คะแนนดีขึ้น
+    </div>
+
+    <div class="form-section">
+        <label>อาหารที่ชอบ:</label><br>
+        <input type="checkbox"> ผัดไทย
+        <input type="checkbox"> ข้าวมันไก่
+        <input type="checkbox"> ต้มยำกุ้ง
+    </div>
+
+    <div class="form-section">
+        <label>ความคิดเห็นเพิ่มเติม:</label><br>
+        <textarea name="comment" rows="4" style="width:90%; border-radius:5px; padding:5px;"></textarea>
+    </div>
+
+    <div class="button-area">
+        <input type="submit" value="ส่งแบบฟอร์ม">
+        <input type="reset" value="รีเซ็ต">
+        <a href="#" class="cancel-btn">ยกเลิก</a>
+    </div>
+
+</form>
+
+</div>
+
 </body>
 </html>

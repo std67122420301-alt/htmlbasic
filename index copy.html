@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>Web Form Example</title>
+</head>
+
+<body>
+
+<h2 style="text-align:center;">แบบสอบถาม</h2>
+
+<table align="center" bgcolor="#F2E4CF" cellpadding="15">
+    <tr>
+        <td>
+
+        <b>ข้อมูลผู้ตอบแบบสอบถาม</b>
+        <hr>
+
+        <form>
+
+            ชื่อ-นามสกุล <br>
+            <input type="text" size="40"><br><br>
+
+            รหัสนักศึกษา <br>
+            <input type="text" size="20"><br><br>
+
+            เพศ <br>
+            <input type="radio" name="gender" checked> ชาย
+            <input type="radio" name="gender"> หญิง <br><br>
+
+            สาขาวิชา <br>
+            <select size="6">
+                <option>วิทยาการคอมพิวเตอร์</option>
+                <option>เทคโนโลยีสารสนเทศ</option>
+                <option>วิศวกรรมซอฟต์แวร์</option>
+                <option>คณิตศาสตร์</option>
+                <option>ชีววิทยา</option>
+                <option>เคมี</option>
+                <option>ฟิสิกส์</option>
+            </select>
+
+            <br><br>
+
+            แผนที่สนใจเรียน <br>
+            <input type="checkbox"> มืออาชีพ
+            <input type="checkbox"> ปกติ
+            <br><br>
+
+            ผลที่ได้รับจากการเรียน <br>
+            <input type="checkbox"> คะแนน A
+            <input type="checkbox"> ได้พัฒนา
+            <br><br>
+
+            อาหารที่ชอบ <br>
+            <input type="checkbox"> ผัดไทย
+            <input type="checkbox"> ข้าวมันไก่
+            <input type="checkbox"> ต้มยำกุ้ง
+            <br><br>
+
+            <input type="submit" value="บันทึก">
+
+        </form>
+
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
